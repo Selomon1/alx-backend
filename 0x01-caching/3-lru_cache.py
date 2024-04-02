@@ -17,7 +17,8 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache """
         if key is not None and item is not None:
-            if len(self.cache_data) >= self.MAX_ITEMS and key not in self.cache_data:
+            if len(self.cache_data) >= self.MAX_ITEMS and \
+                    key not in self.cache_data:
                 discarded_key = self.queue.pop(0)
                 del self.cache_data[discarded_key]
                 print("DISCARD:", discarded_key)
