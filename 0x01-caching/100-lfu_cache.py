@@ -20,10 +20,10 @@ class LFUCache(BaseCaching):
         if key is None or item is None:
             return
 
-
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS and \
                 key not in self.cache_data:
-            lfu_keys = [k for k, v in self.ref_count.items() if v == min(self.ref_count.values())]
+            lfu_keys = [k for k, v in self.ref_count.items()
+                        if v == min(self.ref_count.values())]
             if len(lfu_keys) > 1:
                 lfu_key = {k: self.usage.index(k) for k in lfu_keys}
                 discard = min(lfu_key, key=lfu_key.get)
