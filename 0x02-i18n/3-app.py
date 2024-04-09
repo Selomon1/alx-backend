@@ -4,7 +4,7 @@ Basic Flask app with Babel app, language selector, and parameterized templates
 """
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
