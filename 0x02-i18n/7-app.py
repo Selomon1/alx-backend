@@ -61,7 +61,11 @@ def get_timezone() -> str:
         return timezone
     if g.user and g.user.get('timezone') in pytz.all_timezones:
         return g.user.get('timezone')
-    return 'UTC'
+    try:
+        pytz.timezone(timezone)
+        return timezone
+    except pytz.exceptions.UnknownTimeZoneError:
+        return app.config['BABEL_DEFAULT_TIMEZONE']
 
 
 @app.route('/', strict_slashes=False)
