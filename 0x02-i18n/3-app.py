@@ -7,6 +7,7 @@ from flask import Flask, render_template, request
 from flask_babel import Babel, _
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
@@ -37,7 +38,7 @@ def index():
     """
     return render_template('3-index.html',
                             home_title=_("Welcome to Holberton"),
-                            home_header=_("Hello world"))
+                            home_header=_("Hello world!"))
 
 
 if __name__ == "__main__":
