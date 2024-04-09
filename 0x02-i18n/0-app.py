@@ -13,7 +13,7 @@ def index():
     """
     Route to render index.html template
     """
-    return render_template('0-index.html')
+    return render_template('0-index')
 
 
 if __name__ == "__main__":
