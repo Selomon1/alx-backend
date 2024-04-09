@@ -46,7 +46,7 @@ def index():
     """
     Route to render index.html template with parameterized messages
     """
-    return render_template('4-index.html')
+    return render_template('5-index.html')
 
 
 def get_user(user_id):
