@@ -3,8 +3,8 @@
 Basic Flask app with Babel app, language selector, and parameterized templates
 """
 
-from flask import Flask, render_template
-from flask_babel import Babel
+from flask import Flask, render_template, request
+from flask_babel import Babel, _
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -36,9 +36,9 @@ def index():
     Route to render index.html template with parameterized messages
     """
     return render_template('3-index.html',
-                            home_title=gettest("Welcome to Holberton"),
-                            home_header=gettest("Hello world"))
+                            home_title=_("Welcome to Holberton"),
+                            home_header=_("Hello world"))
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port"5000")
+    app.run(host="0.0.0.0", port="5000")
