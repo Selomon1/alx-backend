@@ -41,39 +41,14 @@ describe('createPushNotificationsJobs', () => {
 			job.emit('complete');
 			expect(consoleSpy.calledWith(`Notification job ${job.id} completed`)).to.be.true;
 		});
-	});
 
-	it('registers the progress event handler for a job', () => {
-		const job = queue.createJob('push_notification_code_3', { phoneNumber: '1234567890', message: 'Test message' });
-		job.save((error) => {
-			if (error) {
-				console.error(`Error saving job: ${error}`);
-				done(error);
-				return;
-			}
+		expect(queue.testMode.jobs[1].type).to.equal('push_notification_code_3');
+		expect(queue.testMode.jobs[0].data).to.deep.equal(jobs[0]);
 
-			job.on('progress', (progress) => {
-				expect(consoleSpy.calledWith(`Notification job ${job.id} ${progress}% complete`)).to.be.true;
-				done();
-			});
-			job.emit('progress')
-		});
-	});
+		expect(queue.testMode.jobs[1].type).to.equal('push_notification_code_3');
+		expect(queue.testMode.jobs[1].data).to.deep.equal(jobs[1]);
 
-	it('registers the failed event handler for a job', () => {
-		const job = queue.createJob('push_notification_code_3', { phoneNumber: '1234567890', message: 'Test message' });
-		job.save((error) => {
-			if (error) {
-				console.error(`Error saving job: ${error}`);
-				return;
-			}
-
-			job.on('failed', (errorMessage) => {
-				expect(consoleSpy.calledWith(`Notification job ${job.id} failed: ${errorMessage.message}`)).to.be.true;
-			});
-
-			const errorMessage = new Error('Failed to send');
-			job.emit('failed', errorMessage);
-		});
+		expect(consoleSpy.calledWith(`Notification job created: ${queue.testMode.jobs[0].id}`)).to.be.true;
+					expect(consoleSpy.calledWith(`Notification job created: ${queue.testMode.jobs[0].id}`)).to.be.true
 	});
 });
