@@ -49,7 +49,7 @@ const jobs = [
   }
 ];
 
-jobs.forEach((jobData, index) => {
+jobs.forEach((jobData) => {
 	const job = queue.create('puch_notification_code_2', jobData);
 	job.on('enqueue', () => {
 		console.log(`Notification job created: ${job.id}`);

@@ -1,12 +1,12 @@
 {
   "name": "queuing_system_in_js",
   "version": "1.0.0",
-  "description": "",
+  "description": "At the end of this project, you are expected to be able to explain to anyone, without the help of Google:",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint",
+    "lint": "eslint",
     "check-lint": "lint [0-9]*.js",
-    "test": "./node_modules/.bin/mocha --require @babel/register --exit",
+    "test": "mocha --require @babel/register --exit",
     "dev": "nodemon --exec babel-node --presets @babel/preset-env"
   },
   "author": "",
@@ -23,14 +23,21 @@
     "@babel/node": "^7.8.0",
     "@babel/preset-env": "^7.8.2",
     "@babel/register": "^7.8.0",
+    "@eslint/js": "^9.2.0",
     "chai": "^4.2.0",
-    "eslint": "^6.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.5.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.1.0",
     "mocha": "^10.4.0",
     "nodemon": "^3.1.0",
     "request": "^2.88.0",
     "sinon": "^7.5.0"
-  }
+  },
+  "keywords": []
 }
